@@ -1,0 +1,94 @@
+/* ── Google Fonts ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Background image ── */
+.hero-bg img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── Dark vignette overlay ── */
+.hero-overlay {
+  background:
+    radial-gradient(ellipse 60% 70% at 45% 40%, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.75) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+/* ── Nav link underline slide animation (::after pseudo-element) ── */
+.nav-link {
+  text-decoration: none;
+  transition: color 0.25s;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #00d4d4;
+  transition: width 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Hero content top padding (fluid clamp) ── */
+.hero-content {
+  padding-top: clamp(60px, 16vh, 140px);
+}
+
+/* ── Hero title (Rampart One + text-shadow glow) ── */
+.hero-title {
+  font-family: 'Rampart One', cursive;
+  font-size: clamp(64px, 12vw, 148px);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 80px rgba(0, 212, 212, 0.2),
+    0 0 30px rgba(0, 212, 212, 0.1),
+    2px 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+/* ── Contact Me button glow ── */
+.btn-contact {
+  box-shadow: 0 0 18px rgba(0, 212, 212, 0.45);
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s !important;
+}
+.btn-contact:hover {
+  background: #00efef !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(0, 212, 212, 0.7) !important;
+}
+
+/* ── View My Work button ── */
+.btn-view {
+  transition: border-color 0.25s, background 0.25s, transform 0.2s !important;
+}
+.btn-view:hover {
+  border-color: #00d4d4 !important;
+  background: rgba(0, 212, 212, 0.08) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-bottom: 40px !important;
+  }
+}
+@media (max-width: 480px) {
+  .hero-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 32px !important;
+  }
+}
