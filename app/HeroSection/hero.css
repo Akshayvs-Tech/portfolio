@@ -1,5 +1,15 @@
-/* ── Google Fonts ────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Rampart+One&family=Inter:wght@300;400;500;600&display=swap');
+/* ── Google Fonts & Web Fonts ────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Orbitron:wght@500;600&family=Inter:wght@300;400;500;600&family=League+Gothic&family=Sanchez&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ethnocentric');
+
+/* ── Azonix font (personal-use free font via CDN) ── */
+@font-face {
+  font-family: 'Azonix';
+  src: url('https://db.onlinewebfonts.com/c/42954fca42bd1f687f736468d1cdcd3e?family=Azonix') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ── Background image ── */
 .hero-bg img {
@@ -14,45 +24,54 @@
     linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.85) 100%);
 }
 
-/* ── Nav link underline slide animation (::after pseudo-element) ── */
+/* ── Nav link: Orbitron font + zoom + cyan glow on hover ── */
 .nav-link {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.15em;
   text-decoration: none;
-  transition: color 0.25s;
-  position: relative;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background: #00d4d4;
-  transition: width 0.3s ease;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+  display: inline-block;
 }
 .nav-link:hover,
 .nav-link.active {
-  color: #ffffff;
-}
-.nav-link.active::after,
-.nav-link:hover::after {
-  width: 100%;
+  color: #00d4d4;
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(0, 212, 212, 0.65), 0 0 26px rgba(0, 212, 212, 0.3);
 }
 
 /* ── Hero content top padding (fluid clamp) ── */
 .hero-content {
-  padding-top: clamp(60px, 16vh, 140px);
+  padding-top: clamp(200px, 32vh, 300px);
 }
 
-/* ── Hero title (Rampart One + text-shadow glow) ── */
+/* ── Hero title ── */
 .hero-title {
-  font-family: 'Rampart One', cursive;
-  font-size: clamp(64px, 12vw, 148px);
+  font-family: 'Rubik Doodle Shadow', cursive;
+  font-size: clamp(42px, 7vw, 90px);
   line-height: 1;
   letter-spacing: 0.04em;
+  background: transparent;
   text-shadow:
     0 0 80px rgba(0, 212, 212, 0.2),
     0 0 30px rgba(0, 212, 212, 0.1),
+    2px 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+/* ── Intro overlay title ── */
+.intro-title {
+  font-family: 'Rubik Doodle Shadow', cursive;
+  font-size: clamp(80px, 14vw, 180px);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #fff;
+  user-select: none;
+  mix-blend-mode: screen;
+  background: transparent;
+  text-shadow:
+    0 0 80px rgba(0, 212, 212, 0.25),
+    0 0 30px rgba(0, 212, 212, 0.15),
     2px 4px 24px rgba(0, 0, 0, 0.9);
 }
 
@@ -75,6 +94,15 @@
   border-color: #00d4d4 !important;
   background: rgba(0, 212, 212, 0.08) !important;
   transform: translateY(-2px);
+}
+
+/* ── Role cycler clip container ── */
+.role-cycler-clip {
+  position: relative;
+  overflow: hidden;
+  height: 1.6em;          /* single-line height, matches line-height */
+  display: flex;
+  align-items: center;
 }
 
 /* ── Responsive ── */

@@ -1,0 +1,132 @@
+/* ── About Section ─────────────────────────────────────────── */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* fade from pure black into a very deep dark */
+  background: linear-gradient(to bottom, #000000 0%, #020508 20%, #030609 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 48px 80px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* subtle ambient glow behind content */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 212, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── ABOUT ME Heading ── */
+.about-heading {
+  font-family: 'Rubik Doodle Shadow', cursive;
+  font-weight: 400;
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 60px;
+  text-align: center;
+  text-shadow:
+    0 0 80px rgba(0, 212, 212, 0.2),
+    0 0 30px rgba(0, 212, 212, 0.1),
+    2px 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+/* underline removed */
+
+/* ── Two-column layout ── */
+.about-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Left: Profile image ── */
+.about-image-col {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-image-wrapper {
+  /* no frame, no crop — render image exactly as-is */
+  position: relative;
+  line-height: 0;
+}
+
+.about-image-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Right: Content ── */
+.about-content-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4px;
+}
+
+.about-bio {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about-image-col {
+    flex: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-image-wrapper img {
+    max-width: 300px;
+  }
+
+  .about-content-col {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-section {
+    padding: 80px 24px 60px;
+  }
+
+  .about-image-wrapper img {
+    max-width: 240px;
+  }
+}
